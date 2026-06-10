@@ -14,13 +14,13 @@ public class RightRotateK {
         int k=sc.nextInt();
         k=k%n;
         int temp[]=new int[k];
-        for(int i=0;i<n;i++){ //storing
+        for(int i=0;i<k;i++){    //Storing
             temp[i]=arr[n-k+i];
         }
-        for(int i=0;i<=k;i++){//shifting
-            arr[k+i]=arr[i];
+        for(int i=n-k-1; i>=0; i--){//shifting from reverse
+            arr[i+k]=arr[i];
         }
-        for(int i=0;i<k;i++){
+        for(int i=0; i<k; i++){ //rearranging
             arr[i]=temp[i];
         }
         for(int i=0;i<n;i++){
