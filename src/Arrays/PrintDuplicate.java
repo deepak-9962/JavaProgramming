@@ -16,10 +16,9 @@ public class PrintDuplicate {
                 if(arr[i]==arr[j]){
                     flag=1;
                 }
-                if(flag==1){
+                if(flag==1) {
                     continue;
                 }
-                
             }
 
         }
