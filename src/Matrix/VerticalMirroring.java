@@ -1,5 +1,5 @@
 import java.util.*;
-public class CommonElements {
+public class ReverseRows {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         System.out.println("row?: ");
@@ -13,9 +13,8 @@ public class CommonElements {
                 a[i][j] = sc.nextInt();
             }
         }
-        System.out.println();
-        for(int j=0;j<c;j++){
-            for(int i=0;i<r;i++){
+        for(int i=0;i<r;i++){
+            for(int j=c-1;j>=0;j--){
                 System.out.print(a[i][j]+" ");
             }
             System.out.println();
