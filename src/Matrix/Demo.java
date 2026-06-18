@@ -14,11 +14,17 @@ public class Demo {
             }
         }
         System.out.println();
-        for(int i=m-1;i>=0;i--){
-            for(int j=n-1;j<n;j++){
-                System.out.print(a[i][j]+" ");
-            }
-            System.out.println();
+        for(int i=0;i<m;i++){
+            System.out.print(a[0][i]);
+        }
+        for(int i=1;i<n-1;i++){
+            System.out.print(a[i][n-1]);
+        }
+        for(int j=m-2;j>=0;j--){
+            System.out.print(a[m-1][i]);
+        }
+        for(int i=){
+            System.out.print(a[][]);
         }
         //System.out.println( );
         //for(int i=0;i<m;i++){
