@@ -13,25 +13,26 @@ public class Demo {
                 a[i][j]=sc.nextInt();
             }
         }
-        System.out.println();
-        for(int i=0;i<m;i++){
-            System.out.print(a[0][i]);
+
+        boolean common=false;
+        boolean found=false;
+        for(int j=0;j<n;j++){
+            int count=1;
+            int x=a[0][j];
+            for(int i=1;i<m;i++){
+                for(int k=0;k<n;k++){
+                    if(x==a[i][k]){
+                        count++;
+                        break;
+                    }
+                }
+                }
+            if(count==m){
+                System.out.print(x+" ");
+                found= true;
+            }
+            }
+            if(!found)
+                System.out.print("-1");
         }
-        for(int i=1;i<n-1;i++){
-            System.out.print(a[i][n-1]);
-        }
-        for(int j=m-2;j>=0;j--){
-            System.out.print(a[m-1][i]);
-        }
-        for(int i=){
-            System.out.print(a[][]);
-        }
-        //System.out.println( );
-        //for(int i=0;i<m;i++){
-          //  for(int j=0;j<n;j++){
-            //    System.out.print(arr[i][j]+" ");
-           // }
-           // System.out.println();
-        //}
     }
-}

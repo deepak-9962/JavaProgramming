@@ -1,43 +1,38 @@
 import java.util.*;
 public class CommonRowElements {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
         System.out.println("row?: ");
-        int r = sc.nextInt();
+        int m=sc.nextInt();
         System.out.println("column?:");
-        int c = sc.nextInt();
-        int a[][] = new int[r][c];
-        int b[][] = new int[r][c];
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                a[i][j] = sc.nextInt();
+        int n=sc.nextInt();
+        int a[][]=new int[m][n];
+        int b[][]=new int[m][n];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                a[i][j]=sc.nextInt();
             }
         }
 
         boolean common=false;
-        boolean foundcommon=false;
-        System.out.println();
         boolean found=false;
-        for(int j=0;j<c;j++){
+        for(int j=0;j<n;j++){
             int count=1;
             int x=a[0][j];
-            for(int i=1;i<r;i++){
-
-                for(int k=0;k<c;k++){
+            for(int i=1;i<m;i++){
+                for(int k=0;k<n;k++){
                     if(x==a[i][k]){
                         count++;
                         break;
                     }
                 }
             }
-            if(count==r){
+            if(count==m){
                 System.out.print(x+" ");
-                found = true;
+                found= true;
             }
         }
-
-        if(!found){
+        if(!found)
             System.out.print("-1");
-        }
     }
 }
