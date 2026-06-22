@@ -17,6 +17,8 @@ public class CommonRowElements {
         boolean common=false;
         boolean found=false;
         for(int j=0;j<n;j++){
+
+            for(int p=0)
             int count=1;
             int x=a[0][j];
             for(int i=1;i<m;i++){
