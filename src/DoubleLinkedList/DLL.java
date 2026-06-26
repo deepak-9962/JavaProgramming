@@ -35,8 +35,8 @@ class Double{
             if(head==null){
                 head=NewNode;
             }
-            head.prev=NewNode;
-            NewNode.next=head;
+        NewNode.next=head;
+        head.prev=NewNode;
             head=NewNode;
 
     }
@@ -87,6 +87,55 @@ class Double{
     }
 
 
+    void DeleteFirst(){
+       if(head==null){
+           System.out.println("the list is empty");
+           return;
+       }
+       head=head.next;
+    }
+
+
+    void DeleteLast(){
+        Node temp=head;
+        while(temp.next.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
+    }
+
+    void DeletePosition(int pos){
+        if(head==null){
+            System.out.println("the list is empty");
+        }
+        else{
+            Node temp=head;
+            for(int i=1;i<pos-1;i++){
+                temp=temp.next;
+            }
+            temp.next.next.prev=temp;
+            temp.next=temp.next.next;
+
+        }
+    }
+
+    boolean Search(int target){
+        if(head==null){
+            System.out.println("the list is empty");
+        }
+        else{
+            Node temp=head;
+            while(temp!=null){
+                if(temp.data==target){
+                    return true;
+                }
+                temp=temp.next;
+            }
+        }
+      return false;
+    }
+
+
 }
 public class DLL {
     public static void main(String args[]){
@@ -95,10 +144,18 @@ public class DLL {
         list.InsertEnd(20);
         list.InsertEnd(30);
         list.InsertEnd(40);
+        //list.ForwardDisplay();
         list.InsertBegin(1);
-        list.ForwardDisplay();
+       // list.ForwardDisplay();
         list.InsertPosition(2,2);
         list.ForwardDisplay();
         //list.BackwardDisplay();
+        //list.DeleteFirst();
+        //list.ForwardDisplay();
+        //list.DeleteFirst();
+        //list.DeleteLast();
+        list.DeletePosition(4);
+        list.ForwardDisplay();
+        System.out.println(list.Search(40));
     }
 }

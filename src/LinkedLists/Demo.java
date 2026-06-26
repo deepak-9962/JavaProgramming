@@ -52,8 +52,55 @@ class LL{
         }
         NewNode.next=temp.next;
         temp.next=NewNode;
+    }
 
+    void DeleteBeginning(){
+        if(head==null){
+            System.out.println("the list is empty");
+            return;
+        }
+            head=head.next;
+    }
 
+    void DeleteEnd(){
+        if(head==null){
+            System.out.println("the list is empty");
+            return;
+        }
+        else if(head.next==null){
+            head=null;
+        }
+        Node temp=head;
+        while(temp.next.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
+
+    }
+
+    void DisplayReverse(){
+        if(head==null){
+            System.out.println("the list is empty");
+            return;
+        }
+        Node temp=head;
+        int n=0;
+        while(temp!=null){
+            n++;
+            temp=temp.next;
+        }
+        int arr[]=new int[n];
+        temp=head;
+        int i=0;
+        while(temp!=null){
+            arr[i]=temp.data;
+            temp=temp.next;
+            i++;
+        }
+        for(i=n-1;i>=0;i--){
+            System.out.print(arr[i]+" -> ");
+        }
+        System.out.print("NULL");
     }
 }
 public class Demo {
@@ -72,5 +119,10 @@ public class Demo {
       list.display();
       list.InsertAtPosition(25,3);
       list.display();
+      list.DeleteBeginning();
+      list.display();
+      list.DeleteEnd();
+      list.display();
+      list.DisplayReverse();
   }
 }
