@@ -14,12 +14,28 @@ class Double{
     Node head;
 
 
+    int count(){
+        if(head==null){
+            System.out.println("list is empty");
+            //return;
+        }
+        int count=0;
+        Node temp=head;
+        while(temp!=null){
+            count++;
+            temp=temp.next;
+        }
+        return count;
+    }
+
+
     void InsertEnd(int data){
         Node NewNode=new Node(data);
         if(head==null){
             head=NewNode;
             return;
         }
+
 
         Node temp=head;
         while(temp.next!=null){
@@ -43,6 +59,7 @@ class Double{
 
 
     void InsertPosition(int data,int pos){
+
         Node NewNode=new Node(data);
         Node temp=head;
         for(int i=1;i<pos-1;i++){
@@ -107,6 +124,14 @@ class Double{
     void DeletePosition(int pos){
         if(head==null){
             System.out.println("the list is empty");
+            return;
+        }
+        else if(count()==pos){
+            InsertEnd(pos);
+        }
+        else if(pos>count()){
+            System.out.println("Invalid Position");
+            return;
         }
         else{
             Node temp=head;
@@ -117,6 +142,7 @@ class Double{
             temp.next=temp.next.next;
 
         }
+        ForwardDisplay();
     }
 
     boolean Search(int target){
@@ -133,6 +159,23 @@ class Double{
             }
         }
       return false;
+    }
+
+    void sort(){
+        Node temp=head;
+        //count();
+        for(int i=1;i<count();i++){
+            temp=head;
+            for(int j=1;j<=count()-i;j++) {
+                if (temp.next.data < temp.data) {
+                    int t = temp.next.data;
+                    temp.next.data = temp.data;
+                    temp.data = t;
+                }
+                temp = temp.next;
+            }
+        }
+        ForwardDisplay();
     }
 
 
@@ -154,8 +197,15 @@ public class DLL {
         //list.ForwardDisplay();
         //list.DeleteFirst();
         //list.DeleteLast();
-        list.DeletePosition(4);
+
         list.ForwardDisplay();
         System.out.println(list.Search(40));
+        list.InsertPosition(65,2);
+        list.InsertPosition(5,6);
+        list.ForwardDisplay();
+        list.DeletePosition(8);
+        list.ForwardDisplay();
+        list.sort();
+        //list.DeletePosition(10);
     }
 }
