@@ -102,6 +102,20 @@ class LL{
         }
         System.out.print("NULL");
     }
+
+    void reverse(){
+        Node prev=null;
+        Node curr=head;
+        while(curr!=null){
+            Node NextTemp=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=NextTemp;
+        }
+        head=prev;
+        System.out.println();
+        display();
+    }
 }
 public class Demo {
   public static void main(String[] args){
@@ -124,5 +138,6 @@ public class Demo {
       list.DeleteEnd();
       list.display();
       list.DisplayReverse();
+      list.reverse();
   }
 }

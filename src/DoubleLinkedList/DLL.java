@@ -178,15 +178,64 @@ class Double{
         ForwardDisplay();
     }
 
+    boolean palindrome(){
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        int flag=0;
+        Node i=head;
+        while(i!=temp && i.prev!=temp){
+            if(i.data!=temp.data){
+                flag=1;
+                break;
+            }
+            temp=temp.prev;
+            i=i.next;
+        }
+        return flag==0;
+    }
+
+    void duplicate(){
+        Node t1=head;
+        while(t1!=null){
+            int flag=0;
+            int count=0;
+            Node t2=head;
+            while(t2!=t1){
+                if(t1.data==t2.data){
+                    flag=1;
+                    break;
+                }
+                t2=t2.next;
+            }
+            if(flag==1){
+                t1=t1.next;
+                continue;
+            }
+            Node temp=head;
+            while(temp!=null){
+                if(temp.data==t1.data){
+                    count++;
+                }
+                temp=temp.next;
+            }
+            if(count>1) System.out.println(t1.data);
+            t1=t1.next;
+
+        }
+    }
+
 
 }
 public class DLL {
     public static void main(String args[]){
         Double list=new Double();
         list.InsertEnd(10);
+        list.InsertEnd(10);
         list.InsertEnd(20);
         list.InsertEnd(30);
-        list.InsertEnd(40);
+        list.InsertEnd(20);
         //list.ForwardDisplay();
         list.InsertBegin(1);
        // list.ForwardDisplay();
@@ -199,13 +248,17 @@ public class DLL {
         //list.DeleteLast();
 
         list.ForwardDisplay();
-        System.out.println(list.Search(40));
+        //System.out.println(list.Search(40));
         list.InsertPosition(65,2);
+        list.ForwardDisplay();
         list.InsertPosition(5,6);
+        list.InsertPosition(5,10);
         list.ForwardDisplay();
-        list.DeletePosition(8);
-        list.ForwardDisplay();
-        list.sort();
+        //list.DeletePosition(8);
+        //list.ForwardDisplay();
+        //list.sort();
         //list.DeletePosition(10);
+        //list.duplicate();
+        //System.out.println(list.palindrome());
     }
 }
